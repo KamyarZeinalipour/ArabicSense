@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use ArabicSense, please cite the paper below."
+title: "ArabicSense: A Benchmark for Evaluating Commonsense Reasoning in Arabic with Large Language Models"
+repository-code: "https://github.com/KamyarZeinalipour/ArabicSense"
+license: Apache-2.0
+authors:
+  - {family-names: Lamsiyah, given-names: Salima}
+  - {family-names: Zeinalipour, given-names: Kamyar}
+  - {family-names: El Amrany, given-names: Samir}
+  - {family-names: Brust, given-names: Matthias}
+  - {family-names: Maggini, given-names: Marco}
+  - {family-names: Bouvry, given-names: Pascal}
+  - {family-names: Schommer, given-names: Christoph}
+preferred-citation:
+  type: conference-paper
+  title: "ArabicSense: A Benchmark for Evaluating Commonsense Reasoning in Arabic with Large Language Models"
+  authors:
+    - {family-names: Lamsiyah, given-names: Salima}
+    - {family-names: Zeinalipour, given-names: Kamyar}
+    - {family-names: El Amrany, given-names: Samir}
+    - {family-names: Brust, given-names: Matthias}
+    - {family-names: Maggini, given-names: Marco}
+    - {family-names: Bouvry, given-names: Pascal}
+    - {family-names: Schommer, given-names: Christoph}
+  collection-title: "Proceedings of the 4th Workshop on Arabic Corpus Linguistics (WACL-4)"
+  publisher: {name: "Association for Computational Linguistics"}
+  year: 2025
+  url: "https://aclanthology.org/2025.wacl-1.1/"

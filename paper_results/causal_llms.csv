@@ -1,0 +1,7 @@
+model,setting,taskA_accuracy,taskA_precision,taskA_recall,taskA_f1,taskB_accuracy,taskB_precision,taskB_recall,taskB_f1,taskC_bertscore_precision,taskC_bertscore_recall,taskC_bertscore_f1
+gemma-2-9b-it,zero-shot,0.869,0.88,0.854,0.867,0.921,0.922,0.92,0.921,0.641,0.672,0.656
+Llama-3.1-8B-Instruct,zero-shot,0.69,0.733,0.598,0.659,0.863,0.865,0.86,0.863,0.733,0.763,0.747
+Mistral-7B-Instruct-v0.3,zero-shot,0.523,0.517,0.718,0.601,0.805,0.804,0.806,0.805,0.735,0.722,0.728
+gemma-2-9b-it,fine-tuned,0.947,0.948,0.946,0.947,0.944,0.944,0.944,0.944,0.765,0.754,0.759
+Llama-3.1-8B-Instruct,fine-tuned,0.945,0.948,0.942,0.945,0.93,0.93,0.93,0.93,0.774,0.773,0.773
+Mistral-7B-Instruct-v0.3,fine-tuned,0.948,0.946,0.95,0.948,0.934,0.934,0.934,0.934,0.768,0.774,0.771
