@@ -80,6 +80,44 @@ LM head; AdamW, learning rate 1e-4 with cosine decay, weight decay 1e-4; 8 seque
 4 gradient-accumulation steps; up to 1,024 tokens; bf16, DeepSpeed, Flash Attention 2, seed 100.
 Gemma-2 and Llama-3.1 were trained for one epoch, Mistral for three.
 
+<!-- hf-usage -->
+## Load the models and data from Hugging Face
+
+Everything released with the paper is in the Hugging Face collection [ArabicSense (WACL-4 2025)](https://huggingface.co/collections/Kamyar-zeinalipour/arabicsense-wacl-4-2025-6af47f5fabd9b1da26dbccd7).
+
+```python
+from datasets import load_dataset
+
+data = load_dataset("Kamyar-zeinalipour/ArabicSense")
+data = load_dataset("Kamyar-zeinalipour/ArabicSense-task2")
+data = load_dataset("Kamyar-zeinalipour/ArabicSense-task3")
+data = load_dataset("Kamyar-zeinalipour/ArabicCommonsense_DB_Gemma")
+data = load_dataset("Kamyar-zeinalipour/ArabicCommonsense_DB_Llama3")
+data = load_dataset("Kamyar-zeinalipour/ArabicCommonsense_DB_Mistral")
+```
+
+The fine-tuned models are LoRA adapters. `AutoPeftModelForCausalLM` downloads the base model named in the adapter's configuration and applies the adapter on top of it:
+
+```python
+import torch
+from peft import AutoPeftModelForCausalLM
+from transformers import AutoTokenizer
+
+repo = "Kamyar-zeinalipour/gemma2-9b-CS-AR"
+tokenizer = AutoTokenizer.from_pretrained("Kamyar-zeinalipour/gemma2-9b-CS-AR")
+model = AutoPeftModelForCausalLM.from_pretrained(repo, torch_dtype=torch.bfloat16, device_map="auto")
+```
+
+| Adapter | Base model |
+|---|---|
+| [gemma2-9b-CS-AR](https://huggingface.co/Kamyar-zeinalipour/gemma2-9b-CS-AR) | [google/gemma-2-9b-it](https://huggingface.co/google/gemma-2-9b-it) |
+| [Llama3-8B-CS-AR](https://huggingface.co/Kamyar-zeinalipour/Llama3-8B-CS-AR) | [meta-llama/Meta-Llama-3.1-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct) |
+| [Mistral-7b-CS-AR](https://huggingface.co/Kamyar-zeinalipour/Mistral-7b-CS-AR) | [mistralai/Mistral-7B-Instruct-v0.3](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.3) |
+
+Some base models (Llama, Gemma, Mistral Small/Nemo) are gated: accept their licence on their Hugging Face page and log in with `huggingface-cli login` before loading.
+
+<!-- /hf-usage -->
+
 ## Citation
 
 ```bibtex
